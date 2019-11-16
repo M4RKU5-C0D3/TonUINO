@@ -5,6 +5,8 @@
             "includePath": [
                 "/home/mmartens/bin/arduino/tools/**",
                 "/home/mmartens/bin/arduino/hardware/arduino/avr/**",
+                "/home/mmartens/bin/arduino/hardware/arduino/avr/cores/arduino/**",
+                "/home/mmartens/bin/arduino/hardware/arduino/avr/libraries/DFRobotDFPlayerMini/**",
                 "/home/mmartens/bin/arduino/hardware/tools/avr/avr/**"
             ],
             "forcedInclude": [
