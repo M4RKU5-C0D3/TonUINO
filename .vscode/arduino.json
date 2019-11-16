@@ -2,5 +2,6 @@
     "board": "arduino:avr:nano",
     "configuration": "cpu=atmega328old",
     "port": "/dev/ttyUSB0",
-    "programmer": "AVR ISP"
+    "programmer": "AVR ISP",
+    "sketch": "Tonuino.ino"
 }
