@@ -5,44 +5,40 @@
 const uint8_t pinRXI = 19;// A5
 const uint8_t pinTXO = 18;// A4
 
-SoftwareSerial mySoftwareSerial(pinRXI, pinTXO);
-DFRobotDFPlayerMini myDFPlayer;
+SoftwareSerial SSerial(pinRXI, pinTXO);
+DFRobotDFPlayerMini Player;
 void printDetail(uint8_t type, int value);
 
 void setup()
 {
-  mySoftwareSerial.begin(9600);
+  SSerial.begin(9600);
   Serial.begin(115200);
   
   Serial.println();
   Serial.println(F("DFRobot DFPlayer Mini Demo"));
   Serial.println(F("Initializing DFPlayer ... (May take 3~5 seconds)"));
   
-  if (!myDFPlayer.begin(mySoftwareSerial)) {  //Use softwareSerial to communicate with mp3.
+  if (!Player.begin(SSerial)) {
     Serial.println(F("Unable to begin:"));
     Serial.println(F("1.Please recheck the connection!"));
     Serial.println(F("2.Please insert the SD card!"));
-    while(true){
-      delay(0); // Code to compatible with ESP8266 watch dog.
-    }
+    while(true)delay(0);// stall
   }
   Serial.println(F("DFPlayer Mini online."));
   
-  myDFPlayer.volume(10);  //Set volume value. From 0 to 30
-  myDFPlayer.play(1);  //Play the first mp3
+  Player.volume(10);  // [0-30]
+  Player.playFolder(1,1);  //Play 01/001.mp3
 }
 
 void loop()
 {
   static unsigned long timer = millis();
   
+  //Play next every 20 second.
   if (millis() - timer > 20000) {
     timer = millis();
-    myDFPlayer.next();  //Play next mp3 every 3 second.
-  }
-  
-  if (myDFPlayer.available()) {
-    printDetail(myDFPlayer.readType(), myDFPlayer.read()); //Print the detail message from DFPlayer to handle different errors and states.
+    Player.next();
+    printDetail(Player.readType(),Player.read());
   }
 }
 
@@ -105,5 +101,4 @@ void printDetail(uint8_t type, int value){
     default:
       break;
   }
-  
 }
