@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "/home/mmartens/bin/arduino/tools/**",
+                "/home/mmartens/bin/arduino/hardware/arduino/avr/**",
+                "/home/mmartens/bin/arduino/hardware/arduino/avr/cores/arduino/**",
+                "/home/mmartens/bin/arduino/hardware/arduino/avr/libraries/DFRobotDFPlayerMini/**",
+                "/home/mmartens/bin/arduino/hardware/tools/avr/avr/**"
+            ],
+            "forcedInclude": [
+                "/home/mmartens/bin/arduino/hardware/arduino/avr/cores/arduino/Arduino.h"
+            ],
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
