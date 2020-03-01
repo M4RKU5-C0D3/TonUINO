@@ -10,12 +10,13 @@ module CardPocketHoles(T){
 module CardPocketUpper(){
     color("DeepSkyBlue",0.5)difference() {
         cube([PW,PH,PT]);
+        //CUTOUT
+        translate([(PW-25)/2,PH/2,-1])cube([25,PH/2+1,PT+2]);
+        translate([PW/2,PH/2,-1])cylinder(PT+2,25/2,25/2);
         CardPocketHoles(PT);
     }
 }
 
 CardPocketUpper();
-
-
 
 echo(str("CardPocketUpper: ",PW,"x",PH,"x",PT,"mm"));
