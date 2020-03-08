@@ -17,6 +17,6 @@ module CardPocketUpper(){
     }
 }
 
-CardPocketUpper();
+projection(cut = true) CardPocketUpper();
 
 echo(str("CardPocketUpper: ",PW,"x",PH,"x",PT,"mm"));

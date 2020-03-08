@@ -10,6 +10,6 @@ module CardPocketLower(){
     }
 }
 
-CardPocketLower();
+projection(cut = true)CardPocketLower();
 
 echo(str("CardPocketLower: ",PW,"x",PH,"x",PT,"mm"));
