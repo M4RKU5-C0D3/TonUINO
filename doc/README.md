@@ -18,6 +18,9 @@
 
 * [Lochrasterplatine](https://www.reichelt.de/lochrasterplatine-hartpapier-500x100mm-h25pr500-p8274.html) ✔️
 * [Platinen-Steckverbinder](https://www.reichelt.de/platinen-steckverbinder-c7525.html) ✔️
+* [Messing Abstandhalter M3](https://www.ebay.de/sch/i.html?_nkw=Messing+M3+Abstandhalter+Set) ✔️
+* [Kabel](https://www.ebay.de/itm/302766474820) ✔️
+* [Flachsteckhülsen](https://www.ebay.de/itm/152880177973) ✔️
 
 ## Datenblätter
 
