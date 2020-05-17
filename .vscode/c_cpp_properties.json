@@ -16,9 +16,12 @@
                 "/home/mmartens/.arduino15/packages/arduino/hardware/avr/1.8.2/cores/arduino/Arduino.h"
             ],
             "intelliSenseMode": "gcc-x64",
-            "compilerPath": "/usr/bin/gcc",
+            "compilerPath": "/home/mmartens/bin/arduino/hardware/tools/avr/bin/avr-gcc",
             "cStandard": "c11",
-            "cppStandard": "c++17"
+            "cppStandard": "c++17",
+            "defines": [
+                "USBCON"
+            ]
         }
     ],
     "version": 4
