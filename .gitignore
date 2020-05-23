@@ -27,8 +27,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# TonUINO
+/tools/*.pyc
+
 # data
-/SD-Karte/*
-!SD-Karte/advert
-!SD-Karte/mp3
-!SD-Karte/Google Voice
+/sd-card/*
+!sd-card/advert
+!sd-card/mp3

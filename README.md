@@ -4,6 +4,19 @@ Die DIY Musikbox (nicht nur) für Kinder
 
 # Change Log
 
+## Version 2.1 (xx.xx.xxxx) noch WIP
+- Partymodus hat nun eine Queue -> jedes Lied kommt nur genau 1x vorkommt
+- Neue Wiedergabe-Modi "Spezialmodus Von-Bis" - Hörspiel, Album und Party -> erlaubt z.B. verschiedene Alben in einem Ordner zu haben und je mit einer Karte zu verknüpfen
+- Admin-Menü
+- Maximale, Minimale und Initiale Lautstärke
+- Karten werden nun über das Admin-Menü neu konfiguriert
+- die Funktion der Lautstärketasten (lauter/leiser oder vor/zurück) kann im Adminmenü vertauscht werden
+- Shortcuts können konfiguriert werden!
+- Support für 5 Knöpfe hinzugefügt
+- Reset der Einstellungen ins Adminmenü verschoben
+- Modikationskarten (Sleeptimer, Tastensperre, Stopptanz, KiTa-Modus)
+- Admin-Menü kann abgesichert werden
+
 ## Version 2.01 (01.11.2018)
 - kleiner Fix um die Probleme beim Anlernen von Karten zu reduzieren
 
