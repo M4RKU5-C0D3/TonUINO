@@ -25,3 +25,7 @@
 ## Datenblätter
 
 * [Visaton FR 10 HM](https://www.visaton.de/de/produkte/chassiszubehoer/breitband-systeme/fr-10-8-ohm)
+
+## Makuna/DFMiniMp3
+
+* "Com Error": [Codes](https://github.com/Makuna/DFMiniMp3/wiki/Notification-Method#static-void-onerroruint16_t-errorcode)
