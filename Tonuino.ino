@@ -638,7 +638,8 @@ MFRC522::StatusCode status;
 #define buttonDown A2
 #define busyPin 4
 #define shutdownPin 7
-#define openAnalogPin A7
+#define openAnalogPin A6
+#define volumeAnalogPin A7
 
 #ifdef FIVEBUTTONS
 #define buttonFourPin A3
@@ -661,6 +662,10 @@ bool ignoreDownButton = false;
 bool ignoreButtonFour = false;
 bool ignoreButtonFive = false;
 #endif
+
+/// analog volume
+
+uint8_t volumeAnalog = 0;
 
 /// Funktionen für den Standby Timer (z.B. über Pololu-Switch oder Mosfet)
 
@@ -771,6 +776,7 @@ void setup() {
   pinMode(buttonFivePin, INPUT_PULLUP);
 #endif
   pinMode(shutdownPin, OUTPUT);
+  pinMode(volumeAnalog, INPUT);
   digitalWrite(shutdownPin, LOW);
 
 
@@ -800,29 +806,21 @@ void readButtons() {
 }
 
 void volumeUpButton() {
-  if (activeModifier != NULL)
-    if (activeModifier->handleVolumeUp() == true)
-      return;
-
-  Serial.println(F("=== volumeUp()"));
-  if (volume < mySettings.maxVolume) {
-    mp3.increaseVolume();
-    volume++;
-  }
-  Serial.println(volume);
+  // replaced by volumeAnalogKnob()
 }
 
 void volumeDownButton() {
-  if (activeModifier != NULL)
-    if (activeModifier->handleVolumeDown() == true)
-      return;
+  // replaced by volumeAnalogKnob()
+}
 
-  Serial.println(F("=== volumeDown()"));
-  if (volume > mySettings.minVolume) {
-    mp3.decreaseVolume();
-    volume--;
+void volumeAnalogKnob() {
+    volumeAnalog = (uint8_t)((float)analogRead(volumeAnalogPin) / 1023.0 * (float)(mySettings.maxVolume - mySettings.minVolume)) + mySettings.minVolume;
+    if(volumeAnalog != volume){
+      volume = volumeAnalog;
+      mp3.setVolume(volume);
+      Serial.print(F("volume:"));
+      Serial.println(volume);
   }
-  Serial.println(volume);
 }
 
 void nextButton() {
@@ -953,6 +951,8 @@ void loop() {
     // Buttons werden nun über JS_Button gehandelt, dadurch kann jede Taste
     // doppelt belegt werden
     readButtons();
+
+    volumeAnalogKnob();
 
     // admin menu
     if ((pauseButton.pressedFor(LONG_PRESS) || upButton.pressedFor(LONG_PRESS) || downButton.pressedFor(LONG_PRESS)) && pauseButton.isPressed() && upButton.isPressed() && downButton.isPressed()) {
@@ -1107,6 +1107,7 @@ void loop() {
   }
   mfrc522.PICC_HaltA();
   mfrc522.PCD_StopCrypto1();
+
 }
 
 void adminMenu(bool fromCard = false) {
